@@ -1,10 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 const LoggedOutLinks = () => {
     return (
         <>
-        <li><a href="collapsible.html">Login</a></li>
-        <li><a href="collapsible.html">Signin</a></li>
+        <li><Link to="/sign-up">Sign up </Link></li>
+        <li><Link to="/sign-in">Sign in</Link></li>
         </>
     )
 }

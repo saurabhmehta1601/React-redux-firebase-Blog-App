@@ -1,0 +1,5 @@
+export const dashboard="/"
+export const signin="/sign-in"
+export const signup = "/sign-up"
+export const logout="/logout"
+export const profile = "/profile"
