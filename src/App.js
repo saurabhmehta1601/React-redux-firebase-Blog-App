@@ -9,8 +9,8 @@ import SignUp from "./pages/SignUp";
 import Error404 from "./pages/Error404";
 import Profile from "./pages/Profile";
 
-
 function App() {
+
   return (
     <>
       <Navbar />
