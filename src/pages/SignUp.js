@@ -6,6 +6,11 @@ const SignIn = () => {
 
             <div className="input-field col s12">
             <input id="last_name" type="text" className="validate" />
+            <label htmlFor="last_name">Username</label>
+            </div>
+
+            <div className="input-field col s12">
+            <input id="last_name" type="text" className="validate" />
             <label htmlFor="last_name">Email</label>
             </div>
 

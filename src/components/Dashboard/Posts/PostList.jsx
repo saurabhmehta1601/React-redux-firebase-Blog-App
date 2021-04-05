@@ -7,9 +7,14 @@ const PostList = () => {
             <div className="row">
                 <div className="col m8">
                     <Post />
+                    <Post />
+                    <Post />
+                    <Post />
+                    <Post />
                 </div>
-                <div className="col m3 offest-m1 z-depth-1 notifications">
-                    <h5>Notifications</h5>
+                <div className="col m3 offest-m1 blue z-depth-1 notifications">
+                    <h5 className="">Notifications</h5>
+
                 </div>
             </div>
         </div>
