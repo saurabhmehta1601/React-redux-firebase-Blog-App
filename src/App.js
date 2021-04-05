@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import SignUp from "./pages/SignUp";
 import Error404 from "./pages/Error404";
 import Profile from "./pages/Profile";
-
+import firebase from "./firebase/config"
 
 
 function App() {
