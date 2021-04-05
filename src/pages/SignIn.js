@@ -1,12 +1,16 @@
 import React from 'react'
 import loginUser from "../redux/actions/user/loginUser"
- 
-const SignIn = () => {
+import { useDispatch } from 'react-redux' 
 
+const SignIn = ( ) => {
+    const dispatch = useDispatch( ) 
 
     const handleSubmit =(e)=>{
         e.preventDefault()
-        loginUser(e.target.email,e.target.password)
+        const email = e.target.email.value
+        const password= e.target.password.value
+        dispatch(loginUser(email,password))
+        e.target.reset()
     }
 
     return (<div className="row  auth-form">
