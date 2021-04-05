@@ -25,16 +25,16 @@ export default function userReducer(state=initialState,action){
             return {...state,loading:true } 
         
         case LOGIN_FAIL :
-            return {...state,loading:false, error:action.payload} 
+            return {...state,loading:false, loginError:action.payload} 
     
         case LOGIN_SUCCESS :
-            return { ...state,loading:false,loggedInUser:action.payload } 
+            return { ...state,loading:false,loggedInUser:action.payload,loginError:null } 
         
         case LOGOUT_REQUEST :
             return {...state,loading:true } 
         
         case LOGOUT_FAIL :
-            return {...state,loading:false, error:action.payload} 
+            return {...state,loading:false, logoutError:action.payload} 
     
         case LOGOUT_SUCCESS :
             return { ...state,loading:false,loggedInUser:null } 

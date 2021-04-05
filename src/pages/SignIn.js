@@ -2,11 +2,14 @@ import React, { useEffect } from 'react'
 import loginUser from "../redux/actions/user/loginUser"
 import { useDispatch } from 'react-redux' 
 import firebase from '../firebase/config'
+import {useSelector} from 'react-redux'
 
 firebase.auth().onAuthStateChanged
 
 
 const SignIn = (props) => {
+
+    const user = useSelector(state => state.user)
     useEffect(()=>{
         firebase.auth().onAuthStateChanged(user =>{
             if(user){
@@ -14,10 +17,6 @@ const SignIn = (props) => {
             }
         })
     })
-    
-    
-    
-    
     
     const dispatch = useDispatch( ) 
     const handleSubmit =(e)=>{
@@ -29,8 +28,9 @@ const SignIn = (props) => {
     }
 
     return (<div className="row  auth-form">
-        <form className="col s8 offset-s2 " onSubmit={handleSubmit}>
 
+        <form className="col s8 offset-s2 " onSubmit={handleSubmit}>
+            {user.loginError && <p className="red-text"> {user.loginError} </p>}
             <div className="input-field col s12">
             <input id="email" type="email" name="email" className="validate" />
             <label htmlFor="email">Email</label>

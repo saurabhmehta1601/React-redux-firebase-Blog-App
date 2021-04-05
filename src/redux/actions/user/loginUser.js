@@ -21,12 +21,9 @@ export default function loginUser(email, password){
       payload: user
     })
   }).catch(() =>{
-      const error={
-        message: "Invalid credentials"
-      }
       dispatch({
         type:LOGIN_FAIL,
-          payload: error
+          payload: "Invalid credentials"
       })
   })
     }
