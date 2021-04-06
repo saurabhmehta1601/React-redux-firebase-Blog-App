@@ -7,6 +7,9 @@
     padding-top:20vh;
 }
 
+.verify-text{
+    margin-top:2rem ;
+}
 button[type="submit"]{
     margin-top:2rem ;
 }

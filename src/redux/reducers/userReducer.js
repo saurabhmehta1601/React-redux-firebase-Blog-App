@@ -10,6 +10,9 @@ const LOGOUT_REQUEST="LOGOUT_REQUEST"
 const LOGOUT_FAIL="LOGOUT_FAIL"
 const LOGOUT_SUCCESS="LOGOUT_SUCCESS"
 
+const VERIFICATION_EMAIL_SEND_REQUEST="VERIFICATION_EMAIL_REQUEST"
+const VERIFICATION_EMAIL_SEND_FAIL="VERIFICATION_EMAIL_FAIL"
+const VERIFICATION_EMAIL_SEND_SUCCESS="VERIFICATION_EMAIL_SUCCESS"
 
 export default function userReducer(state={},action){
     switch(action.type){
@@ -40,7 +43,16 @@ export default function userReducer(state={},action){
     
         case SIGNUP_SUCCESS :
             return { ...state,loading:false } 
-        
+ 
+        case VERIFICATION_EMAIL_SEND_REQUEST : 
+            return {...state,loading:true }
+           
+        case VERIFICATION_EMAIL_SEND_SUCCESS :
+            return {...state,loading:false, verifyEmailError:action.payload} 
+    
+        case VERIFICATION_EMAIL_SEND_FAIL :
+            return { ...state,loading:false }      
+
         default: return state
     }
 }
