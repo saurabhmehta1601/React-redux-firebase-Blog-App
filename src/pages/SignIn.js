@@ -1,24 +1,12 @@
 import React, { useEffect } from 'react'
 import loginUser from "../redux/actions/user/loginUser"
 import { useDispatch } from 'react-redux' 
-import firebase from '../firebase/config'
 import {useSelector} from 'react-redux'
-
-firebase.auth().onAuthStateChanged
-
 
 const SignIn = (props) => {
 
     const user = useSelector(state => state.user)
-    useEffect(()=>{
-        firebase.auth().onAuthStateChanged(user =>{
-            if(user){
-                props.history.push("/") 
-            }
-        })
-    })
-    
-    const dispatch = useDispatch( ) 
+    const dispatch = useDispatch() 
     const handleSubmit =(e)=>{
         e.preventDefault()
         const email = e.target.email.value
