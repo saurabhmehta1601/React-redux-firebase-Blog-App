@@ -8,13 +8,11 @@ const LOGOUT_REQUEST="LOGOUT_REQUEST"
 const LOGOUT_FAIL="LOGOUT_FAIL"
 const LOGOUT_SUCCESS="LOGOUT_SUCCESS"
 
-
-
 export default function userReducer(state={},action){
     switch(action.type){
 
         case LOAD_USER:
-            return {...state,loggedInUser:action.payload}
+            return {...state}
         case LOGIN_REQUEST :
             return {...state,loading:true } 
         
@@ -22,7 +20,7 @@ export default function userReducer(state={},action){
             return {...state,loading:false, loginError:action.payload} 
     
         case LOGIN_SUCCESS :
-            return { ...state,loading:false,loggedInUser:action.payload,loginError:null } 
+            return { ...state,loading:false,loginError:null,loginSuccess:action.payload } 
         
         case LOGOUT_REQUEST :
             return {...state,loading:true } 
@@ -31,7 +29,7 @@ export default function userReducer(state={},action){
             return {...state,loading:false, logoutError:action.payload} 
     
         case LOGOUT_SUCCESS :
-            return { ...state,loading:false,loggedInUser:null } 
+            return { ...state,loading:false } 
         
         default: return state
     }

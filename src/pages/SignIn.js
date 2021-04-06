@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import loginUser from "../redux/actions/user/loginUser"
-import { useDispatch } from 'react-redux' 
-import {useSelector} from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux' 
+import { Redirect } from 'react-router-dom'
 
 const SignIn = (props) => {
 
     const user = useSelector(state => state.user)
+    const auth = useSelector(state =>state.firebase.auth)
     const dispatch = useDispatch() 
     const handleSubmit =(e)=>{
         e.preventDefault()
@@ -14,6 +15,8 @@ const SignIn = (props) => {
         dispatch(loginUser(email,password))
         e.target.reset()
     }
+
+    if(auth.uid) return <Redirect to="/"></Redirect>
 
     return (<div className="row  auth-form">
 

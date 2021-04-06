@@ -13,12 +13,10 @@ export default function loginUser(email, password){
     })
 
   firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // successfully Signed in
-    const user = userCredential.user;
+  .then(() => {
     dispatch({
       type:LOGIN_SUCCESS,
-      payload: user
+      payload:"logged in successfully"
     })
   }).catch(() =>{
       dispatch({
