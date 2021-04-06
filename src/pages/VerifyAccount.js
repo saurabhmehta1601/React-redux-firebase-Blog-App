@@ -1,8 +1,9 @@
 import React from 'react'
 
 const VerifyAccount = () => {
+    
     return (
-        <div>
+        <div className="section ">
            Please Verify-Account
         </div>
     )
