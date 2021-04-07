@@ -48,10 +48,10 @@ export default function userReducer(state={},action){
             return {...state,loading:true }
            
         case VERIFICATION_EMAIL_SEND_SUCCESS :
-            return {...state,loading:false, verifyEmailError:action.payload} 
+            return {...state,loading:false, verifyEmailMessage:action.payload} 
     
         case VERIFICATION_EMAIL_SEND_FAIL :
-            return { ...state,loading:false }      
+            return { ...state,loading:false,verifyEmailError:action.payload }      
 
         default: return state
     }

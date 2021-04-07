@@ -8,6 +8,9 @@ const VerifyAccount = (props) => {
     const firebase = useFirebase()
     const dispatch =useDispatch() 
     
+    const verifyEmailMessage = useSelector(state => state.user.verifyEmailMessage)
+    const verifyEmailError = useSelector(state => state.user.verifyEmailError)
+
     const handleVerify  =(e)=>{
         e.preventDefault()    
         dispatch(verifyEmail(firebase))
@@ -25,6 +28,9 @@ const VerifyAccount = (props) => {
          Hello blogger .<br/>
          Please <a href="" onClick={handleVerify}> click here</a> to verify your email <b>{user.email} </b> with a verification email .
          </p>
+
+        <p> {verifyEmailMessage} </p>
+        <p> {verifyEmailError} </p>
         </div>
     )
 }
