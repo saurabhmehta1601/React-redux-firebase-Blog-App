@@ -1,24 +1,22 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useFirebase } from "react-redux-firebase";
-import {useHistory} from "react-router-dom"
+import { useHistory } from 'react-router-dom';
 import signupUser from "../redux/actions/user/signupUser"
 
 const SignUp = () => {
 
-    const history = useHistory()
     const dispatch = useDispatch() 
-    const firebase = useFirebase();
     const error = useSelector(state => state.user.signupError)
+    const history  =useHistory()
     const handleSubmit = (e) =>{
     e.preventDefault();
-    
     const user = {
         username:e.target.username.value,
         email:e.target.email.value,
         password:e.target.password.value,
     }
-    signupUser(user,firebase,history,dispatch)
+
+    dispatch(signupUser(user,history))
 }
 
     return (<div className="row  auth-form">

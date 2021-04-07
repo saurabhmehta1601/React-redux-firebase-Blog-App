@@ -1,6 +1,6 @@
 import LoggedInLinks from './LoggedInLinks'
 import LoggedOutLinks from './LoggedOutLinks'
-import {useHistory,Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {useSelector} from "react-redux"
 import M from 'materialize-css'
 
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const Navbar = (props) => {
   const auth = useSelector(state => state.firebase.auth)
-  const history = useHistory()
     return (
         <>
     <nav className="teal">
