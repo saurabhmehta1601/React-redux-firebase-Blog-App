@@ -20,7 +20,7 @@ const SignUp = () => {
 }
 
     return (<div className="row  auth-form">
-        <form className="col s8 offset-s2 " onSubmit={handleSubmit}>
+        <form className="col s8 offset-s2 " onSubmit={handleSubmit} autoComplete="on">
         <p className="red-text">{error}</p>
             <div className="input-field col s12">
             <input id="username" type="text" className="validate" name="username" />
@@ -33,7 +33,7 @@ const SignUp = () => {
             </div>
 
             <div className="input-field col s12">
-            <input id="password" type="password" className="validate" name="password" />
+            <input id="password" type="password" className="validate" name="password" autoComplete="off"/>
             <label htmlFor="password">Password</label>
             </div>
             <button type="submit" className="btn col s4 offset-s4 ">Sign up</button>

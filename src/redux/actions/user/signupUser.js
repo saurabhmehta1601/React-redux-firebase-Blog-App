@@ -3,7 +3,7 @@ const SIGNUP_FAIL = "SIGNUP_FAIL";
 const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 
 const signupUser = (user, history) => {
-  return (dispatch, getState, getFirebase) => {
+  return (dispatch,getState, getFirebase) => {
     const firebase = getFirebase();
     dispatch({
       type: SIGNUP_REQUEST,

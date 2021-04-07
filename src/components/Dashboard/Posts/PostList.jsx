@@ -1,7 +1,12 @@
 import React from 'react'
+import { getFirestore } from 'redux-firestore'
 import Post from './Post'
 
 const PostList = () => {
+    const firestore = getFirestore()
+
+
+    
     return (
         <div className="container">
             <div className="row">

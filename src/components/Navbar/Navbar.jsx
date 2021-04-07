@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     M.Sidenav.init(elems);
   });
 
-const Navbar = (props) => {
+const Navbar = () => {
   const auth = useSelector(state => state.firebase.auth)
     return (
         <>
