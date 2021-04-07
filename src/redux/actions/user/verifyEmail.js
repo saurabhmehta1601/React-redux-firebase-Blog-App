@@ -10,17 +10,15 @@ export default function verifyEmail(firebase){
         const user =firebase.auth().currentUser
         user.sendEmailVerification()
         .then(()=>{
-            console.log("verification link sent");
             dispatch({  
                 type:VERIFICATION_EMAIL_SEND_SUCCESS,
-                payload: "verification link sent"
+                payload: "An account verification link has been sent to your email."
                 })
         })
         .catch(()=>{
-            console.log("verification link couldn't be sent ");
             dispatch({
                 type: VERIFICATION_EMAIL_SEND_FAIL,
-                payload : "verification link couldn't be sent "
+                payload : "Sorry could'n send verification link. "
             })
         })
       

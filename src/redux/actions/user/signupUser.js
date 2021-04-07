@@ -15,11 +15,9 @@ firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then((
     })
     history.push("/verify-account")    
 }).catch(err => {
-
-    
     dispatch({
         type:SIGNUP_FAIL,
-        payload : "user account creation failed ."
+        payload : err.message
     })
 })
 };

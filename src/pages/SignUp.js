@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFirebase } from "react-redux-firebase";
 import {useHistory} from "react-router-dom"
 import signupUser from "../redux/actions/user/signupUser"
@@ -9,7 +9,7 @@ const SignUp = () => {
     const history = useHistory()
     const dispatch = useDispatch() 
     const firebase = useFirebase();
-  
+    const error = useSelector(state => state.user.signupError)
     const handleSubmit = (e) =>{
     e.preventDefault();
     
@@ -23,7 +23,7 @@ const SignUp = () => {
 
     return (<div className="row  auth-form">
         <form className="col s8 offset-s2 " onSubmit={handleSubmit}>
-
+        <p className="red-text">{error}</p>
             <div className="input-field col s12">
             <input id="username" type="text" className="validate" name="username" />
             <label htmlFor="username">Username</label>
