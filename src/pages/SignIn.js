@@ -12,10 +12,10 @@ const SignIn = () => {
         const email = e.target.email.value
         const password= e.target.password.value
         dispatch(loginUser(email,password))
-        e.target.reset()
     }
 
     if(auth.uid) return <Redirect to="/"></Redirect>
+  
 
     return (<div className="row  auth-form">
 

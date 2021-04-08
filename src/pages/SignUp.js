@@ -9,14 +9,14 @@ const SignUp = () => {
     const error = useSelector(state => state.user.signupError)
     const history  =useHistory()
     const handleSubmit = (e) =>{
-    e.preventDefault();
-    const user = {
-        username:e.target.username.value,
-        email:e.target.email.value,
-        password:e.target.password.value,
-    }
+        e.preventDefault();
+        const user = {
+            username:e.target.username.value,
+            email:e.target.email.value,
+            password:e.target.password.value,
+        }
 
-    dispatch(signupUser(user,history))
+        dispatch(signupUser(user,history))
 }
 
     return (<div className="row  auth-form">

@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Post = () => {
+const Post = ({title,content,createdOn}) => {
     return (
-        <div className="section">
-            <h4>Post Title</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero consequatur placeat qui incidunt ipsa nihil ipsum nobis dolor deserunt! Sit, accusamus! Unde non, maxime fuga maiores voluptas aut. Soluta, nemo!</p>
+        <div className="container">
+            Post
+            <h4>{title}</h4>
+            <p>{createdOn.toDate().toLocaleString()}</p>
+            <p>{content}</p>
         </div>
     )
 }

@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 import React from 'react'
 import * as Routes from "./constants/Routes"
 import {Route, Switch } from "react-router-dom";
@@ -10,14 +9,13 @@ import Error404 from "./pages/Error404";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import VerifyAccount from './pages/VerifyAccount';
-import LoadingPage from "./components/LoadPage/LoadPage"
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import fetchInitialPosts from "./redux/actions/posts/fetchPosts"
 
 function App() {
 
-  // const user = useSelector(state => state.firebase.auth)
-  // if(user.isLoaded===false) return <LoadingPage />
-
+  const dispatch = useDispatch()
+  dispatch(fetchInitialPosts())
   return (
     <>
       <Navbar />

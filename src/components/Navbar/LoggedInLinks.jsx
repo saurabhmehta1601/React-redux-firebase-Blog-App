@@ -11,6 +11,7 @@ const LoggedInLinks = () => {
         dispatch(logoutUser())
         history.push("/sign-in")
     }
+
     return (
         <>
         <li><a href="#">Profile</a></li>

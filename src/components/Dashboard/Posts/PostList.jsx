@@ -1,28 +1,31 @@
-import React from 'react'
-import { getFirestore } from 'redux-firestore'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Post from './Post'
+import fetchPosts from "../../../redux/actions/posts/fetchPosts"
+import { useSelector } from 'react-redux'
 
 const PostList = () => {
-    const firestore = getFirestore()
 
-
+    const dispatch = useDispatch() 
     
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col m8">
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                    <Post />
-                </div>
-                <div className="col m3 offest-m1 blue z-depth-1 notifications">
-                    <h5 className="">Notifications</h5>
+    const loadPostsOnClick = () => {
+        dispatch(fetchPosts())
+    }
 
-                </div>
+    const posts = useSelector(state => state.post.posts)
+
+    useEffect(()=>{
+        dispatch(fetchPosts())
+    },[])
+
+    return (
+            <div className="container section">
+                {
+                // eslint-disable-next-line react/jsx-key
+                posts.map( (post,index) => <Post key={index} title={post.title} content={post.content} createdOn={post.createdOn} /> )
+                }
+                    <button className="btn" onClick={loadPostsOnClick}>load more</button>
             </div>
-        </div>
     )
 }
 
