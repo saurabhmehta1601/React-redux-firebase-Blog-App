@@ -1,1 +1,1 @@
-* Live version of application <a href="https://app.netlify.com/sites/blogging-site/overview" target="_top">here</a>
+* Live version of application <a href="https://blogging-site.netlify.app/" target="_blank">here</a>
