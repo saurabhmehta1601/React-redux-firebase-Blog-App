@@ -9,13 +9,16 @@ const ProtectedRoute =(props) =>{
     if(!isLoaded(auth))
         return <LoadingSkeleton />
     
+    if(isLoaded(auth) && isEmpty(auth) )
+        return <Redirect to="/sign-in" ></Redirect>
+    
+    if(isLoaded(auth) && !isEmpty(auth) && !auth.emailVerified)
+        return <Redirect to="/verify-account" ></Redirect>
+
 
     if(isLoaded(auth) && !isEmpty(auth) )
         return<Route {...props}></Route>
-    
 
-    if(isLoaded(auth) && isEmpty(auth) )
-        return <Redirect to="/sign-in" ></Redirect>
 }
 
 export default ProtectedRoute

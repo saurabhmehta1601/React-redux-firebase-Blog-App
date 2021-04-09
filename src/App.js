@@ -20,7 +20,7 @@ function App() {
       <Route  path={Routes.signin}  component={SignIn} />
       <Route path={Routes.signup}  component={SignUp} />
       <Route path="/verify-account" component={VerifyAccount} />
-      <ProtectedRoute path={Routes.dashboard}  component={Dashboard} />
+      <ProtectedRoute exact path={Routes.dashboard}  component={Dashboard} />
       <Route  component={Error404} />
       </Switch>
 

@@ -17,10 +17,10 @@ const VerifyAccount = (props) => {
     }
 
     useEffect(()=>{
-        if( (user.isLoaded && user.isEmpty) || (user && user.emailVerified) ){
+        if( (user.isLoaded && user.isEmpty) || ( user && user.emailVerified) ){
             props.history.push("/")
         }   
-    },[user])
+    },[user.auth])
 
     return (
         <div className="container verify-text">
