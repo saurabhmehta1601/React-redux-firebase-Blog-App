@@ -23,7 +23,7 @@ const PostList = () => {
                 // eslint-disable-next-line react/jsx-key
                 posts.map( (post,index) => <Post key={index} title={post.title} content={post.content} createdOn={post.createdOn} /> )
                 }
-                    <button className="btn" onClick={loadPostsOnClick}>load more</button>
+                    <button className="btn load-btn" onClick={loadPostsOnClick}>load more</button>
             </div>
     )
 }

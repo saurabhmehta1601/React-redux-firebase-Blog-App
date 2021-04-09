@@ -1,3 +1,8 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .notifications{
     margin: 2rem ;
 }
@@ -21,3 +26,12 @@ button[type="submit"]{
        line-height:2.7em ;
       
 }
+
+.post{
+    padding: 1em 2em ;
+}
+
+.load-btn{
+    margin:2em auto 0 1em ;
+}
+
