@@ -4,7 +4,7 @@ export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS"
 
 const initialState={
     posts:[],
-    prevPost:""
+    lastPostCreatedOn:"",
 }
 
 export default function userReducer(state = initialState,action){
@@ -22,7 +22,9 @@ export default function userReducer(state = initialState,action){
         
         case FETCH_POSTS_SUCCESS : 
         return {
-            posts : [...state.posts,...action.payload],
+            ...state,
+            posts : [...state.posts,...action.payload.posts],
+            lastPostCreatedOn:action.payload.lastPostCreatedOn,
             loading:false 
         }
         default: return state

@@ -8,14 +8,24 @@ const fetchPosts = () => {
       dispatch({
             type: FETCH_POSTS_REQUEST
       })
+      const lastPostCreatedOn = getState().post.lastPostCreatedOn 
+      console.log(lastPostCreatedOn);
       const db=getFirestore();
-      db.collection("blogs").orderBy("createdOn").limit(2).get()
-      .then(docs =>{
-         let posts = [] 
-         docs.forEach(doc =>posts.push(doc.data()) )
+
+      if(lastPostCreatedOn==="")
+      {
+         db.collection("blogs").orderBy("createdOn","desc").limit(2).get()
+         .then(docs =>{
+         let posts = []
+         let lastCreatedPostTime 
+         docs.forEach(doc =>{
+            lastCreatedPostTime =doc.data().createdOn
+            posts.push(doc.data())
+         } )
+
          dispatch({
            type:FETCH_POSTS_SUCCESS,
-           payload: posts
+           payload: {posts,lastPostCreatedOn:lastCreatedPostTime}
           })
       })
       .catch(err=>{
@@ -24,6 +34,31 @@ const fetchPosts = () => {
             payload: err.message
          })
       })
+   }else{
+      // 
+      db.collection("blogs").orderBy("createdOn","desc").startAfter(lastPostCreatedOn).limit(1).get()
+      .then(docs =>{
+         let posts = [] 
+         let lastCreatedPostTime =""
+         docs.forEach(doc =>{
+            lastCreatedPostTime =doc.data().createdOn
+            posts.push(doc.data())
+         } )
+         dispatch({
+           type:FETCH_POSTS_SUCCESS,
+           payload: {posts,lastPostCreatedOn:lastCreatedPostTime}
+          })
+      })
+      .catch(err=>{
+         dispatch({
+            type:FETCH_POSTS_FAIL,
+            payload: err.message
+         })
+      })
+   }
+
+
+
    }
 }
 
