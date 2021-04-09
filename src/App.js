@@ -9,13 +9,9 @@ import Error404 from "./pages/Error404";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import VerifyAccount from './pages/VerifyAccount';
-import { useDispatch } from 'react-redux';
-import fetchInitialPosts from "./redux/actions/posts/fetchPosts"
 
 function App() {
 
-  const dispatch = useDispatch()
-  dispatch(fetchInitialPosts())
   return (
     <>
       <Navbar />

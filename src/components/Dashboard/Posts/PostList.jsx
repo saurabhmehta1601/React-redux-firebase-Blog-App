@@ -6,13 +6,12 @@ import { useSelector } from 'react-redux'
 
 const PostList = () => {
 
+    const posts = useSelector(state => state.post.posts)
     const dispatch = useDispatch() 
     
     const loadPostsOnClick = () => {
         dispatch(fetchPosts())
     }
-
-    const posts = useSelector(state => state.post.posts)
 
     useEffect(()=>{
         dispatch(fetchPosts())

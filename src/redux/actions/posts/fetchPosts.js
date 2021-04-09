@@ -9,7 +9,6 @@ const fetchPosts = () => {
             type: FETCH_POSTS_REQUEST
       })
       const lastPostCreatedOn = getState().post.lastPostCreatedOn 
-      console.log(lastPostCreatedOn);
       const db=getFirestore();
 
       if(lastPostCreatedOn==="")
@@ -22,7 +21,6 @@ const fetchPosts = () => {
             lastCreatedPostTime =doc.data().createdOn
             posts.push(doc.data())
          } )
-
          dispatch({
            type:FETCH_POSTS_SUCCESS,
            payload: {posts,lastPostCreatedOn:lastCreatedPostTime}
@@ -56,10 +54,6 @@ const fetchPosts = () => {
          })
       })
    }
-
-
-
    }
 }
-
 export default fetchPosts
