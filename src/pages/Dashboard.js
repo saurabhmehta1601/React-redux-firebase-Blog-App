@@ -1,6 +1,7 @@
-
 import PostList from "../components/Dashboard/Posts/PostList"
+
 const Dashboard = () => {
+
     return (
         <div>
             <PostList />

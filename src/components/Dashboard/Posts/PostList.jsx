@@ -3,13 +3,15 @@ import { useDispatch } from 'react-redux'
 import Post from './Post'
 import fetchPosts from "../../../redux/actions/posts/fetchPosts"
 import { useSelector } from 'react-redux'
+import LoadingSkeleton from "../../LoadPage/LoadPage"
 
 const PostList = () => {
 
     const posts = useSelector(state => state.post.posts)
     const endFetchingPosts = useSelector(state => state.post.endFetchingPosts)
     const dispatch = useDispatch() 
-    
+    const loading = useSelector(state => state.post.loading)
+
     const loadPostsOnClick = () => {
         dispatch(fetchPosts())
     }
@@ -18,6 +20,10 @@ const PostList = () => {
         dispatch(fetchPosts())
     },[])
 
+    if(loading){
+        return <LoadingSkeleton />
+    }
+    
     return (
             <div className="container section">
                 {
