@@ -29,6 +29,7 @@ button[type="submit"]{
 
 .post{
     padding: 1em 2em ;
+    margin-bottom: 2em;
 }
 
 .load-btn{
