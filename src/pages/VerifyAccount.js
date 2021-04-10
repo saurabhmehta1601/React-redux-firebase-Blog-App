@@ -32,10 +32,10 @@ const VerifyAccount = () => {
 
         <div className="section">
          {showVerifyEmailMessage && 
-         <p className=""> An email has been sent to your account .Please check your inbox and reload the page after account verification.</p>
+         <p className="" ><b> An email has been sent to your account .Please check your inbox and reload the page after account verification.</b></p>
          } 
          {showVerifyEmailError &&
-         <p className="">Sorry the verification email couldn&#39;t be sent to your account .Please try again later .</p>
+         <p className="" ><b>Sorry the verification email couldn&#39;t be sent to your account .Please try again later .</b></p>
          } 
         </div>
         </div>

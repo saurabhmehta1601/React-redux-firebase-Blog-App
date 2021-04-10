@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 
 const LoggedInLinks = () => {
+    
     const history = useHistory()
     const dispatch = useDispatch()
     
@@ -14,7 +15,6 @@ const LoggedInLinks = () => {
 
     return (
         <>
-        <li><a href="#">Profile</a></li>
         <li><a href="#" onClick={handleLogout}>Logout</a></li>
         </>
     )
