@@ -20,11 +20,10 @@ button[type="submit"]{
 }
 
 .loading{
-       height: 100vh;
-       display:grid ;
-       align-items: center;
-       line-height:2.7em ;
-      
+    height: 100vh;
+    display:grid ;
+    align-items: center;
+    line-height:2.7em ;
 }
 
 .post{
@@ -47,9 +46,9 @@ button[type="submit"]{
 }
 
 .create-post-form{
-    min-height:70vh;
+    min-height:60vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
 }
 

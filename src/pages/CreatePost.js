@@ -7,6 +7,7 @@ const CreatePost = () => {
 
     const dispatch = useDispatch()
     const history = useHistory() 
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const postedOn =new Date().toLocaleString();
@@ -31,7 +32,7 @@ const CreatePost = () => {
                 <textarea id="content" className="materialize-textarea" type="text"/>
             </div>
 
-            <button type="submit" className="btn" style={{margin:'15vh 20% 25vh 20%'}}>Post</button>
+            <button type="submit" className="btn" style={{margin:'10vh 20% 0px 20%'}}>Post</button>
         </form>
     )
 }
