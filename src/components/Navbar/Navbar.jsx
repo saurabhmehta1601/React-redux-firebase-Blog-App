@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link> : <></>  }
 
         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-        <ul className="right hide-on-med-and-down">
+        <ul className=" right hide-on-med-and-down">
           {isLoaded(auth) && isEmpty(auth) ? <LoggedOutLinks />: <LoggedInLinks /> }
           
       </ul>

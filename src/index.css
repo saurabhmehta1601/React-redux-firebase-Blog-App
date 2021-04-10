@@ -35,6 +35,11 @@ button[type="submit"]{
     margin:2em auto 0 1em ;
 }
 
+.add-btn{
+    position:relative;
+    right: 15%;
+}
+
 .close-btn-link{
     position:relative;
     right: -34% ;
@@ -42,7 +47,7 @@ button[type="submit"]{
 }
 
 .close-btn{
-    padding-bottom: 1em ;
+    padding-bottom: 2em ;
 }
 
 .create-post-form{
@@ -52,3 +57,8 @@ button[type="submit"]{
     justify-content: flex-end;
 }
 
+@media screen and (min-width: 990px){
+    .add-btn{
+        right:23% ;
+    }
+}
