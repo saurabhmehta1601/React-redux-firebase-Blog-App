@@ -10,22 +10,22 @@ const fetchPosts = () => {
       dispatch({
             type: FETCH_POSTS_REQUEST
       })
-      const lastPostCreatedOn = getState().post.lastPostCreatedOn 
+      const lastPostPostedOn = getState().post.lastPostPostedOn 
       const db=getFirestore();
 
-      if(lastPostCreatedOn==="")
+      if(lastPostPostedOn==="")
       {
-         db.collection("blogs").orderBy("createdOn","desc").limit(2).get()
+         db.collection("blogs").orderBy("postedOn","desc").limit(2).get()
          .then(docs =>{
          let posts = []
          let lastCreatedPostTime 
          docs.forEach(doc =>{
-            lastCreatedPostTime =doc.data().createdOn
+            lastCreatedPostTime =doc.data().postedOn
             posts.push(doc.data())
          } )
          dispatch({
            type:FETCH_POSTS_SUCCESS,
-           payload: {posts,lastPostCreatedOn:lastCreatedPostTime}
+           payload: {posts,lastPostPostedOn:lastCreatedPostTime}
           })
       })
       .catch(err=>{
@@ -36,12 +36,12 @@ const fetchPosts = () => {
       })
    }else{
       // 
-      db.collection("blogs").orderBy("createdOn","desc").startAfter(lastPostCreatedOn).limit(1).get()
+      db.collection("blogs").orderBy("postedOn","desc").startAfter(lastPostPostedOn).limit(1).get()
       .then(docs =>{
          let posts = [] 
          let lastCreatedPostTime = null 
          docs.forEach(doc =>{
-            lastCreatedPostTime =doc.data().createdOn
+            lastCreatedPostTime =doc.data().postedOn
             posts.push(doc.data())
          } )
          if(posts.length===0){
@@ -51,7 +51,7 @@ const fetchPosts = () => {
          }
          dispatch({
            type:FETCH_POSTS_SUCCESS,
-           payload: {posts,lastPostCreatedOn:lastCreatedPostTime}
+           payload: {posts,lastPostPostedOn:lastCreatedPostTime}
           })
       })
       .catch(err=>{

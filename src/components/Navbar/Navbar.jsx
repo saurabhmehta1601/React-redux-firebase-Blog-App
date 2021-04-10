@@ -17,18 +17,26 @@ const Navbar = () => {
     <nav className="teal">
         <div className="container transparent blue-text ">
     <div className="nav-wrapper">
-      <Link to="/" className="brand-logo " >Blogger</Link>
+        <Link to="/" className="brand-logo " >Blogger</Link>
 
-      <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-      <ul className="right hide-on-med-and-down">
-        {isLoaded(auth) && isEmpty(auth) ? <LoggedOutLinks />: <LoggedInLinks /> }
+        {isLoaded(auth) && !isEmpty(auth) && auth.emailVerified ? 
+        <Link to="/create-post" className="add-btn right"><i className="material-icons  white-text ">add_circle</i>
+        </Link> : <></>  }
+
+        <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+        <ul className="right hide-on-med-and-down">
+          {isLoaded(auth) && isEmpty(auth) ? <LoggedOutLinks />: <LoggedInLinks /> }
+          
       </ul>
     </div>
     </div>
   </nav>
 
-  <ul className="sidenav" id="mobile-demo">
-        {auth.isLoaded && auth.isEmpty ? <LoggedOutLinks />: <LoggedInLinks /> }
+  <ul className="sidenav center mySidenav" id="mobile-demo">
+  <a className="sidenav-close close-btn-link"  href="#!">
+    <i className="material-icons close-btn">close</i>
+  </a>
+      {auth.isLoaded && auth.isEmpty ? <LoggedOutLinks />: <LoggedInLinks /> }
   </ul>
   </>
     )

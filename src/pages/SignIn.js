@@ -1,6 +1,7 @@
 import loginUser from "../redux/actions/user/loginUser"
 import { useDispatch,useSelector } from 'react-redux' 
 import { Redirect } from 'react-router-dom'
+import { useEffect } from "react"
 
 const SignIn = () => {
 
@@ -14,8 +15,12 @@ const SignIn = () => {
         dispatch(loginUser(email,password))
     }
 
+    
+    useEffect(() => { 
+        document.title="Sign in | Blogger"
+    })
+    
     if(auth.uid) return <Redirect to="/"></Redirect>
-  
 
     return (<div className="row  auth-form">
 

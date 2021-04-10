@@ -36,3 +36,20 @@ button[type="submit"]{
     margin:2em auto 0 1em ;
 }
 
+.close-btn-link{
+    position:relative;
+    right: -34% ;
+    top:4%;
+}
+
+.close-btn{
+    padding-bottom: 1em ;
+}
+
+.create-post-form{
+    min-height:70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

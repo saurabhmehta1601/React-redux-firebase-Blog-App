@@ -21,14 +21,14 @@ const PostList = () => {
     },[])
 
     if(loading){
-        return <LoadingSkeleton />
+        return <div className="container"><LoadingSkeleton /></div>
     }
     
     return (
             <div className="container section">
                 {
                 // eslint-disable-next-line react/jsx-key
-                posts.map( (post,index) => <Post key={index} title={post.title} content={post.content} createdOn={post.createdOn} /> )
+                posts.map( (post,index) => <Post key={index} title={post.title} content={post.content} postedOn={post.postedOn} /> )
                 }
                 {   !endFetchingPosts && <button className="btn load-btn" onClick={loadPostsOnClick}>load more</button>}
                 { 
