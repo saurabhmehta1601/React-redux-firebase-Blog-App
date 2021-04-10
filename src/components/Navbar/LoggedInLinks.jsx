@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux'
 const LoggedInLinks = () => {
     const history = useHistory()
     const dispatch = useDispatch()
-
+    
     const handleLogout = () => {
         dispatch(logoutUser())
         history.push("/sign-in")

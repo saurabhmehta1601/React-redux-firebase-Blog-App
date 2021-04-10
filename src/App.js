@@ -9,6 +9,7 @@ import Error404 from "./pages/Error404";
 import Profile from "./pages/Profile";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import VerifyAccount from './pages/VerifyAccount';
+import CreatePost from "./pages/CreatePost"
 
 function App() {
 
@@ -16,10 +17,11 @@ function App() {
     <>
       <Navbar />
       <Switch>
-      <Route path={Routes.profile} component={Profile} />
+      <ProtectedRoute exact path={Routes.createPost}  component={CreatePost} />
       <Route  path={Routes.signin}  component={SignIn} />
       <Route path={Routes.signup}  component={SignUp} />
-      <Route path="/verify-account" component={VerifyAccount} />
+      <Route path={Routes.verifyAccount} component={VerifyAccount} />
+      <ProtectedRoute path={Routes.profile} component={Profile} />
       <ProtectedRoute exact path={Routes.dashboard}  component={Dashboard} />
       <Route  component={Error404} />
       </Switch>

@@ -12,11 +12,10 @@ const signupUser = (user) => {
       .auth()
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredentials) => {
-        user = userCredentials.user;
-        
+        const authUser = userCredentials.user;
         dispatch({
           type: SIGNUP_SUCCESS,
-          payload: user,
+          payload: authUser,
         });
       })
       .catch((err) => {

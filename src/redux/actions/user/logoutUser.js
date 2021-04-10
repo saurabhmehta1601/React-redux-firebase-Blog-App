@@ -8,7 +8,6 @@ const logoutUser = () => {
         dispatch({
             type:LOGOUT_REQUEST,
         })
-
         firebase.auth().signOut().then(()=>{
             const response={
                 message:"logged out successfully"

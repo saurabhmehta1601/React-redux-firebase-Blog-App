@@ -33,7 +33,7 @@ export default function userReducer(state={},action){
             return {...state,loading:false, logoutError:action.payload} 
     
         case LOGOUT_SUCCESS :
-            return { ...state,loading:false } 
+            return { ...state,loading:false,loggedUser:null } 
 
         case SIGNUP_REQUEST :
             return {...state,loading:true } 
@@ -42,16 +42,16 @@ export default function userReducer(state={},action){
             return {...state,loading:false, signupError:action.payload} 
     
         case SIGNUP_SUCCESS :
-            return { ...state,loading:false } 
+            return { ...state,loading:false,loggedUser:action.payload } 
  
         case VERIFICATION_EMAIL_SEND_REQUEST : 
             return {...state,loading:true }
            
         case VERIFICATION_EMAIL_SEND_SUCCESS :
-            return {...state,loading:false, verifyEmailMessage:action.payload} 
+            return {...state,loading:false, showVerifyEmailMessage:true,showVerifyEmailError:false} 
     
         case VERIFICATION_EMAIL_SEND_FAIL :
-            return { ...state,loading:false,verifyEmailError:action.payload }      
+            return { ...state,loading:false,showVerifyEmailError:true,showVerifyEmailMessage:false }      
 
         default: return state
     }
